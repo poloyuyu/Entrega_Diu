@@ -37,10 +37,10 @@ const SolicitudesPage = () => {
         <div className='field'>
           <label>Documento de avance</label>
           <button type='button' className='dropzone' onClick={() => inputRef.current?.click()}>
-            {archivo ? archivo.name : 'Adjuntar documento (simulado)'}
+            {archivo ? archivo.name : 'Adjuntar documento'}
           </button>
           <input ref={inputRef} type='file' accept='application/pdf' hidden onChange={(e) => setArchivo(e.target.files[0] || null)} />
-          <div className='hint'>Formato PDF, máx. 20 MB. En el prototipo el archivo es simulado; no se sube realmente.</div>
+          <div className='hint'>Formato PDF, máx. 20 MB.</div>
         </div>
 
         <div className='field'>
