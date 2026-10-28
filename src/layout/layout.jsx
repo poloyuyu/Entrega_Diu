@@ -6,7 +6,6 @@ import TemasPage from '../pages/temas'
 import SolicitudesPage from '../pages/solicitudes'
 import NotificacionesPage from '../pages/notificaciones'
 import DocumentosPage from '../pages/documentos'
-import LightbulbPage from '../pages/lightbulb_page.jsx'
 
 import { AppProvider } from '../components/app_state'
 
@@ -22,7 +21,6 @@ const Layout = () => {
               <Route path='/solicitudes' element={<SolicitudesPage />} />
               <Route path='/notificaciones' element={<NotificacionesPage />} />
               <Route path='/documentos' element={<DocumentosPage />} />
-              <Route path='/lightbulb' element={<LightbulbPage />} />
               <Route path='*' element={<Navigate to='/' replace />} />
             </Routes>
           </div>
