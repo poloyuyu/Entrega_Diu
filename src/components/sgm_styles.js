@@ -24,7 +24,7 @@ body { margin: 0; }
 .sgm-user-name { font-weight: 600; font-size: 13px; }
 .sgm-user-meta { font-size: 11px; color: #8fa3c7; margin-top: 6px; line-height: 1.5; }
 .sgm-nav { display: flex; flex-direction: column; gap: 4px; }
-.sgm-nav a { display: flex; align-items: center; justify-content: space-between; text-decoration: none;
+.sgm-nav a { display: flex; gap: 10px; align-items: center; justify-content: space-between; text-decoration: none;
   color: #d6def0; font-size: 13px; padding: 12px; border-radius: 6px; border-left: 3px solid transparent;
   transition: background .15s; }
 .sgm-nav a:hover { background: rgba(255,255,255,.06); }
