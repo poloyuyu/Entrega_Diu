@@ -127,6 +127,11 @@ body { margin: 0; }
 .doc-side { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); }
 .doc-side a { color: var(--link); text-decoration: underline; font-family: 'IBM Plex Sans', sans-serif; font-size: 11.5px; font-weight: 600; }
 
+.milestone[role='link'] { cursor: pointer; transition: background .15s; }
+.milestone[role='link']:hover { background: rgba(0, 0, 0, .04); }
+.milestone[role='link']:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.doc input:disabled { cursor: not-allowed; }
+
 @media (max-width: 820px) {
   .sgm { flex-direction: column; }
   .sgm-side { width: 100%; height: auto; position: static; padding: 20px 16px 0; }

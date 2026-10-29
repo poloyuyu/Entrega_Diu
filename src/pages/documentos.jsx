@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import AppShell from '../components/app_shell'
 import { useApp } from '../components/app_state'
 
@@ -19,7 +20,7 @@ const DocumentosPage = () => {
     if (d.id === 'memoria') {
       return <a href={'data:text/plain;charset=utf-8,' + encodeURIComponent(PLANTILLA)} download='plantilla_memoria.txt'>{d.link}</a>
     }
-    return <a href='#' onClick={(e) => { e.preventDefault(); setVerInstrucciones(!verInstrucciones) }}>{d.link}</a>
+    return <a href='#' onClick={(e) => { e.preventDefault(); setVerInstrucciones(!verInstrucciones) }}>{verInstrucciones ? 'Ocultar instrucciones' : d.link}</a>
   }
 
   return (
@@ -31,7 +32,7 @@ const DocumentosPage = () => {
         <section key={g.key} className='doc-group'>
           <h2 className='h2' style={{ fontSize: 16, marginBottom: 8 }}>{g.titulo}</h2>
           {docs[g.key].map((d) => (
-            <label key={d.id} className={`doc ${d.checked ? 'checked' : ''}`}>
+            <label key={d.id} className={`doc ${d.checked ? 'checked' : ''}`} title={d.locked ? 'Este estado lo actualiza Dirección de Estudios' : undefined}>
               <input type='checkbox' checked={d.checked} disabled={d.locked} onChange={() => toggleDoc(g.key, d.id)} />
               <span className='doc-name'>{d.name}</span>
               <span className='doc-side'>
@@ -39,7 +40,11 @@ const DocumentosPage = () => {
               </span>
             </label>
           ))}
-          {g.key === 'examen' && verInstrucciones && <p className='muted'>{INSTRUCCIONES}</p>}
+          {g.key === 'examen' && verInstrucciones && (
+            <p className='muted'>
+              {INSTRUCCIONES} <Link to='/solicitudes'>Ir a Solicitudes</Link>
+            </p>
+          )}
         </section>
       ))}
     </AppShell>
