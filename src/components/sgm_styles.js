@@ -50,12 +50,12 @@ body { margin: 0; }
 /* Stepper */
 .stepper { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 0 26px; padding: 0; list-style: none; }
 .step { position: relative; }
-.step-dot { position: relative; z-index: 1; width: 12px; height: 12px; border-radius: 50%; background: #d9d3c4; margin-bottom: 14px; }
+.step-dot { position: relative; z-index: 1; width: 12px; height: 12px; border-radius: 50%; background: #d9d3c4; margin-bottom: 20px; }
 .step::after { content: ""; position: absolute; top: 5px; left: 18px; right: 6px; height: 2px; background: #d9d3c4; }
 .step:last-child::after { display: none; }
 .step.done .step-dot, .step.done::after { background: var(--green); }
 .step.current .step-dot { background: var(--gold); box-shadow: 0 0 0 4px #fff, 0 0 0 5.5px var(--gold);
-  width: 14px; height: 14px; margin: -1px 0 0 -1px; }
+  width: 14px; height: 14px; margin: -1px 0 19px -1px; }
 .step-label { font-size: 12px; color: var(--muted); }
 .step.done .step-label, .step.current .step-label { color: var(--ink); font-weight: 600; }
 
