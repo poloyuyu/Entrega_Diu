@@ -32,7 +32,7 @@ const DocumentosPage = () => {
         <section key={g.key} className='doc-group'>
           <h2 className='h2' style={{ fontSize: 16, marginBottom: 8 }}>{g.titulo}</h2>
           {docs[g.key].map((d) => (
-            <label key={d.id} className={`doc ${d.checked ? 'checked' : ''}`} title={d.locked ? 'Este estado lo actualiza Dirección de Estudios' : undefined}>
+            <label key={d.id} className={`doc ${d.checked ? 'checked' : ''}`} title={d.locked ? (d.lockedMsg || 'Este estado lo actualiza Dirección de Estudios') : undefined}>
               <input type='checkbox' checked={d.checked} disabled={d.locked} onChange={() => toggleDoc(g.key, d.id)} />
               <span className='doc-name'>{d.name}</span>
               <span className='doc-side'>
@@ -42,7 +42,7 @@ const DocumentosPage = () => {
           ))}
           {g.key === 'examen' && verInstrucciones && (
             <p className='muted'>
-              {INSTRUCCIONES} <Link to='/solicitudes'>Ir a Solicitudes</Link>
+              {INSTRUCCIONES} <Link to='/solicitudes?tipo=ingles'>Ir a Solicitudes</Link>
             </p>
           )}
         </section>

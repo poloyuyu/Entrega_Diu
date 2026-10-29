@@ -1,18 +1,13 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import AppShell from '../components/app_shell'
+import { useApp } from '../components/app_state'
 
 const STEPS = ['Inscripción TT1', 'Validación de requisitos', 'Desarrollo TT2', 'Defensa de memoria']
 const CURRENT_STEP = 2 // 1-indexed
 
-const MILESTONES = [
-  { id: 1, badge: '12 días', tone: 'warn', title: 'Entrega de informe final', detail: 'Fecha límite: 15 de noviembre de 2026', to: '/solicitudes' },
-  { id: 2, badge: 'Pendiente', tone: 'neutral', title: 'Certificado de inglés de salida', detail: 'Debes subirlo antes de solicitar examen de título', to: '/solicitudes' },
-  { id: 3, badge: 'En curso', tone: 'ok', title: 'Validación de Práctica Profesional 2', detail: 'En revisión por Dirección de Estudios desde el 2 de septiembre', to: '/documentos' },
-]
-
 const HomePage = () => {
-  const navigate = useNavigate()
+  const { milestones, tramite, actualizado } = useApp()
 
   return (
     <AppShell
@@ -35,33 +30,28 @@ const HomePage = () => {
       <section className='pending'>
         <div>
           <div className='eyebrow'>Trámite pendiente</div>
-          <div className='pending-title'>Validación de Práctica Profesional 2</div>
+          <div className='pending-title'>{tramite.titulo}</div>
         </div>
         <div>
           <div className='eyebrow'>Responsable actual</div>
-          <div className='pending-title'>Dirección de Estudios</div>
+          <div className='pending-title'>{tramite.responsable}</div>
         </div>
         <div className='pending-meta'>
-          Tiempo estimado de respuesta: 3–5 días hábiles · Actualizado hoy a las 09:12
+          {tramite.meta} · Actualizado hoy a las {actualizado}
         </div>
       </section>
 
       <h2 className='h2'>Próximos hitos</h2>
       <ul className='milestones'>
-        {MILESTONES.map((m) => (
-          <li
-            key={m.id}
-            className='milestone'
-            role='link'
-            tabIndex={0}
-            onClick={() => { console.log('clic en', m.to); navigate(m.to) }}
-            onKeyDown={(e) => e.key === 'Enter' && navigate(m.to)}
-          >
-            <span className={`badge ${m.tone}`}>{m.badge}</span>
-            <div>
-              <div className='milestone-title'>{m.title}</div>
-              <div className='milestone-detail'>{m.detail}</div>
-            </div>
+        {milestones.map((m) => (
+          <li key={m.id}>
+            <Link to={m.to} className='milestone'>
+              <span className={`badge ${m.tone}`}>{m.badge}</span>
+              <div>
+                <div className='milestone-title'>{m.title}</div>
+                <div className='milestone-detail'>{m.detail}</div>
+              </div>
+            </Link>
           </li>
         ))}
       </ul>

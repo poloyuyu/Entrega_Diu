@@ -142,6 +142,17 @@ body { margin: 0; }
   .stepper { grid-template-columns: repeat(2, 1fr); row-gap: 20px; }
   .step:nth-child(2)::after { display: none; }
 }
+
+/* Hitos: el <Link> se ve igual que antes (sin estilo de enlace) */
+.milestones a.milestone,
+.milestones a.milestone:visited,
+.milestones a.milestone:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.milestones a.milestone .milestone-title { color: var(--ink); }
+.milestones a.milestone .milestone-detail { color: var(--muted); }
+.milestones a.milestone .badge { flex-shrink: 0; min-width: 96px; }
 `
 
 export default css
