@@ -139,8 +139,12 @@ body { margin: 0; }
   .sgm-nav { flex-direction: row; flex-wrap: wrap; }
   .sgm-side-foot { display: none; }
   .sgm-main { padding: 28px 20px 48px; }
-  .stepper { grid-template-columns: repeat(2, 1fr); row-gap: 20px; }
-  .step:nth-child(2)::after { display: none; }
+  .stepper { grid-template-columns: 1fr; row-gap: 0; }
+  .step { display: grid; grid-template-columns: 14px minmax(0, 1fr); column-gap: 12px; padding-bottom: 16px; }
+  .step-dot { grid-column: 1; grid-row: 1; margin: 2px 0 0; }
+  .step-label { grid-column: 2; grid-row: 1; }
+  .step::after { top: 8px; right: auto; bottom: -8px; left: 5px; width: 2px; height: auto; }
+  .step.current .step-dot { margin: 1px 0 0; }
 }
 
 /* Hitos: el <Link> se ve igual que antes (sin estilo de enlace) */
