@@ -109,8 +109,11 @@ body { margin: 0; }
 .req-title { font-size: 13px; }
 
 /* Notificaciones */
-.notif { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); cursor: pointer;
-  background: none; border-left: 0; border-right: 0; border-top: 0; width: 100%; text-align: left; font: inherit; color: inherit; }
+.notif { display: flex; align-items: flex-start; gap: 12px; padding: 16px 12px; border-bottom: 1px solid var(--line); cursor: pointer;
+  background: none; border-left: 0; border-right: 0; border-top: 0; border-radius: 4px; width: 100%; text-align: left; font: inherit; color: inherit;
+  transition: background .15s ease; }
+.notif:hover { background: rgba(14, 35, 71, .05); }
+.notif:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 .notif-icon { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
   font-size: 12px; flex-shrink: 0; }
 .notif-title { font-size: 13px; font-weight: 600; }
